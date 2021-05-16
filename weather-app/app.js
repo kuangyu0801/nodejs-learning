@@ -22,8 +22,8 @@ console.log('Sending request to GeoAPI: ' + gUrl)
 request( {url: gUrl, json: true}, (error, response) => {
     if (error) {
         console.log("Unable to connect to geocoding service")
-    } else if (response.body.error) {
-        console.log("Unable to find location")
+    } else if (response.body.features.length == 0) {
+        console.log("Unable to find location, Try another search")
     } else {
         const data = response.body.features[0]
         console.log('longitude ' + data.center[0])
