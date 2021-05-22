@@ -29,7 +29,7 @@ console.log(curPrice)
 console.log(rating)
 console.log(salePrices)
 
-const transaction = (type, { label, stock}) => {
+const transaction = (type, {abel, stock}) => {
     console.log(type, label, stock)
 }
 
