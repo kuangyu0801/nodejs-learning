@@ -8,8 +8,12 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
+        <!-- including hbs "header" snippet -->
+        {{>header}}
         <h1>From a about document</h1>
         <h2>Title: {{title}}</h2>
         <h2>Name: {{name}}</h2>
+        <img src="/img/robot.png">
+        {{>footer}}
     </body>
 </html>

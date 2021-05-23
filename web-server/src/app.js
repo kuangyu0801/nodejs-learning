@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const hbs = require('hbs')
 
 console.log(__dirname)
 console.log(path.join(__dirname, '../public'))
@@ -9,13 +10,17 @@ console.log(path.join(__dirname, '../public'))
 // create a express object
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
-const viewPath = path.join(__dirname, '../templates')
+const viewPath = path.join(__dirname, '../templates/views')
+const partialPath = path.join(__dirname, '../templates/partials')
 
 // setup handlerbars engine to express with dynamic page
 // express: https://expressjs.com/
 app.set('view engine', 'hbs')
 // setup view path
 app.set('views', viewPath)
+// run with command: nodemon src/app.js -e js.hbs for monitoring both .js and .hbs file changes
+hbs.registerPartials(partialPath)
+
 // using static html file 
 app.use(express.static(publicDirectoryPath))
 
