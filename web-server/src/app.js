@@ -9,9 +9,13 @@ console.log(path.join(__dirname, '../public'))
 // create a express object
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
+const viewPath = path.join(__dirname, '../templates')
 
-// using handler bars for express with dynamic page
+// setup handlerbars engine to express with dynamic page
+// express: https://expressjs.com/
 app.set('view engine', 'hbs')
+// setup view path
+app.set('views', viewPath)
 // using static html file 
 app.use(express.static(publicDirectoryPath))
 
@@ -38,7 +42,8 @@ app.get('/help', (req, res) => {
     // using template with object injection
     res.render('help', {
         title: 'Weather App',
-        name: 'Kuang-Yu Li'
+        name: 'Kuang-Yu Li',
+        path: viewPath
     })
 })
 
