@@ -4,12 +4,43 @@ const express = require('express')
 console.log(__dirname)
 console.log(path.join(__dirname, '../public'))
 
+
+
 // create a express object
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 
+// using handler bars for express with dynamic page
+app.set('view engine', 'hbs')
 // using static html file 
 app.use(express.static(publicDirectoryPath))
+
+// rendering root page with template index
+app.get('', (req, res) => {
+    // using template with object injection
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Kuang-Yu Li'
+    })
+})
+
+// rendering About page with template index
+app.get('/about', (req, res) => {
+    // using template with object injection
+    res.render('about', {
+        title: 'Weather App',
+        name: 'Kuang-Yu Li'
+    })
+})
+
+// rendering About page with template index
+app.get('/help', (req, res) => {
+    // using template with object injection
+    res.render('help', {
+        title: 'Weather App',
+        name: 'Kuang-Yu Li'
+    })
+})
 
 app.get('/weather', (req, res) => {
     res.send({forecast: 'rainy',
