@@ -60,14 +60,30 @@ app.get('/help', (req, res) => {
     })
 })
 
+// using wildcard to handle not matched page w/ 404
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Kuang-Yu Li',
+        errorMessage: 'Help article not found',
+        date
+    })
+})
+
 app.get('/weather', (req, res) => {
     res.send({forecast: 'rainy',
             location: 'Boston'})
 })
 
-// app.com
-// app.com/help
-// app.com/about
+// handler not matched page w/ 404
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Kuang-Yu Li',
+        errorMessage: 'Page not found',
+        date
+    })
+})
 
 // starting the server
 app.listen(3000, () => {
