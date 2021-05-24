@@ -1,7 +1,26 @@
-h1 {
-    color: gray;
-    background-color: yellow;
+body {
+    color: #333333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
 }
-img {
-    width: 250px;
+
+footer {
+    color: #888888;
+    border-top: 1px solid black;
+    background-color: greenyellow;
+    margin: 16px;
+    padding: 16px;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+header {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
 }

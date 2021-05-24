@@ -23,6 +23,8 @@ hbs.registerPartials(partialPath)
 
 // using static html file 
 app.use(express.static(publicDirectoryPath))
+
+// setting current date variable
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
