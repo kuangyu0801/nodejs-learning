@@ -23,13 +23,19 @@ hbs.registerPartials(partialPath)
 
 // using static html file 
 app.use(express.static(publicDirectoryPath))
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
 
+const date = mm + '/' + dd + '/' + yyyy;
 // rendering root page with template index
 app.get('', (req, res) => {
     // using template with object injection
     res.render('index', {
         title: 'Weather App',
-        name: 'Kuang-Yu Li'
+        name: 'Kuang-Yu Li',
+        date
     })
 })
 
@@ -38,7 +44,8 @@ app.get('/about', (req, res) => {
     // using template with object injection
     res.render('about', {
         title: 'Weather App',
-        name: 'Kuang-Yu Li'
+        name: 'Kuang-Yu Li',
+        date
     })
 })
 
@@ -48,7 +55,8 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Weather App',
         name: 'Kuang-Yu Li',
-        path: viewPath
+        path: viewPath, 
+        date
     })
 })
 
